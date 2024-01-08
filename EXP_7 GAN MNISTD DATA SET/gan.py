@@ -1,6 +1,6 @@
 import tensorflow as tf
 from tensorflow.keras import layers, models
-from IPython.display import Image, display
+#from IPython.display import Image, display
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -65,7 +65,7 @@ for epoch in range(epochs):
     generated_imgs = generator.predict(noise)
     labels_fake = np.zeros((batch_size, 1))
 
-    d_loss_real = discriminator.train_on_batch(real_imgs, labels_real, )
+    d_loss_real = discriminator.train_on_batch(real_imgs, labels_real,)
     d_loss_fake = discriminator.train_on_batch(generated_imgs, labels_fake, )
     d_loss = 0.5 * np.add(d_loss_real, d_loss_fake)
 
@@ -74,8 +74,8 @@ for epoch in range(epochs):
     labels_gan = np.ones((batch_size, 1))
     g_loss = gan.train_on_batch(noise, labels_gan)
 
-    # Display progress
-    if epoch % 100 == 0:
+    # Display image once every 250 epochs
+    if epoch % 250 == 0:
         print(f"Epoch {epoch}, D Loss: {d_loss[0]}, G Loss: {g_loss}")
 
         # Generate and save generated images
@@ -87,5 +87,3 @@ for epoch in range(epochs):
             plt.axis('off')
         plt.savefig(f"gan_generated_image_epoch_{epoch}.png")
         plt.close()
-image_path = '/content/gan_generated_image_epoch_9900.png'
-display(Image(filename=image_path))
