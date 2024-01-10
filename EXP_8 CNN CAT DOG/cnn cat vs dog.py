@@ -22,7 +22,7 @@ model.fit(
     epochs=5
 )
 
-#NOTE: Here we have used a image from the training dataset itself, just to make sure that it'll overfit and 
+#NOTE: Here we have used an image from the training dataset itself, just to make sure that it'll overfit and 
 #      output will be correct xD (iykyk)(same thing for horse and human)
 image_path = r'I:\Study Material\1 COLLEGE\DL record\pythonProject\dataset\train\dog\dog.1.jpg'
 img = load_img(image_path, target_size=(128, 128))
