@@ -1,15 +1,3 @@
-
-#VERSION-1
-from PIL import Image, ImageFilter
-
-image = Image.open("sample.jpg")
-image = image.convert("L")
-image = image.filter(ImageFilter.FIND_EDGES)
-image.save("output.png")
-image.show("output.png")
-
-
-#VERSION-2(Recommended, ignore the 1st one)
 import cv2
 
 img = cv2.imread("sample.jpg")  # Read image
